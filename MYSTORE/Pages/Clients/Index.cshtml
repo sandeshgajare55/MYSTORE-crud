@@ -1,0 +1,39 @@
+﻿@page
+@model MYSTORE.Pages.Clients.IndexModel
+@{
+}
+
+<br>
+<h2>LISTS OF CLIENTS</h2>
+<a class='btn btn-primary btn-sm' href='/Clients/Create'>NEW CLIENT</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>PHONE</th>
+            <th>ADDRESS</th>
+            <th>CREATED AT</th>
+            <th>ACTION</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var item in Model.listClients)
+        {
+             <tr>
+                 <td>@item.id</td>
+                 <td>@item.name</td>
+                <td>@item.email</td>
+                <td>@item.phone</td>
+                <td>@item.address</td>
+                <td>@item.created_at</td>
+
+                <td>
+                    <a class="btn btn-primary btn-sm" href="/Clients/Edit?id=@item.id">EDIT</a>
+                    <a class="btn btn-danger btn-sm" href="/Clients/Delete?id=@item.id">DELETE</a>
+                </td>
+             </tr>
+        }
+    </tbody>
+</table>
